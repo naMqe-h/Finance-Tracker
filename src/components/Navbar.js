@@ -11,7 +11,7 @@ export default function Navbar() {
                 <li className={styles.title}>Finance tracker</li>
                 <li><Link to='/login'>Login</Link></li>
                 <li><Link to='/signup'>Signup</Link></li>
-                <li><buttn className="btn" onClick={logout} >Logout</buttn></li>
+                <li><button className="btn" onClick={logout} >Logout</button></li>
             </ul>
         </nav>
     )
