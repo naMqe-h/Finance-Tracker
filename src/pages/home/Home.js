@@ -1,12 +1,19 @@
-import styles from './Home.module.css'
-import TransactionForm from './TransactionForm'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useCollection } from '../../hooks/useCollection'
+
+import styles from './Home.module.css'
+
 import TransactionList from './TransactionList'
+import TransactionForm from './TransactionForm'
+
 
 export default function Home() {
     const { user } = useAuthContext()
-    const { documents, error } = useCollection('transactions')
+    const { documents, error } = useCollection(
+        'transactions',
+        ["uid", "==", user.uid],
+        ['createdAt', "desc"]
+    )
 
     return (
         <div className={styles.container}>
